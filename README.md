@@ -6,5 +6,5 @@ Trigonon is a simple right-angled triangle calculator for Sailfish OS. Just ente
 Changelog
 ---------
 
-Version 0.1.0-1:
+27.8.2015 | Version 0.1.0-1:
 - Initial release!
