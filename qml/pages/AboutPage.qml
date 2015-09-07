@@ -47,7 +47,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 font.pointSize: 18
                 color: Theme.primaryColor
-                text: "<p>Trigonon is a simple right-angled triangle calculator for Sailfish OS.<p>"
+                text: "<p>" + appName + " is a simple right-angled triangle calculator for Sailfish OS.<p>"
                 wrapMode: TextEdit.WordWrap
             }
 
