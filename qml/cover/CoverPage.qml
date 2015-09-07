@@ -9,7 +9,7 @@ CoverBackground {
         horizontalAlignment: Text.AlignHCenter
         font.pointSize: 28
         color: Theme.highlightColor
-        text: "Trigonon"
+        text: appName
         wrapMode: TextEdit.WordWrap
         anchors {
             top: parent.top
