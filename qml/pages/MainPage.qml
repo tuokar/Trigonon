@@ -4,6 +4,18 @@ import Sailfish.Silica 1.0
 
 Page {
     id: root
+    onStatusChanged: {
+        if(status == PageStatus.Active) {
+            return(pageStack.pushAttached(triangleViewPage, {}, operationType))
+        }
+    }
+
+    property bool backStepping: true
+    property int operationType: PageStackAction.Animated
+
+    function switchOperationType() {
+        operationType = (operationType === PageStackAction.Immediate ? PageStackAction.Animated : PageStackAction.Immediate)
+    }
 
     SilicaFlickable {
         anchors.fill: parent
@@ -317,6 +329,124 @@ Page {
                         return(false)
                 }
             }
+        }
+    }
+
+    Page {
+        id: triangleViewPage
+
+        SilicaFlickable {
+            anchors.fill: parent
+            contentHeight: parent
+
+            VerticalScrollDecorator {}
+
+            PageHeader {
+                title: appName
+                description: "Triangle view"
+            }
+
+            InfoLabel {
+                text: "Triangle not specified!"
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: {
+                    if(cathetus_a.text == "" || cathetus_b.text == "" || hypotenuse_c.text == "" || angle_alpha.text == "" || angle_beta.text == "")
+                        return(true)
+                    else
+                        return(false)
+                }
+                anchors {
+                    top: parent.top
+                    topMargin: 450
+                }
+            }
+
+            Canvas {
+                id: triangleCanvas
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 400
+                height: 400
+                onPaint: {
+                    var ctx = getContext("2d")
+                    var alpha = alpha_angle()
+                    var beta = beta_angle()
+                    var r = 400
+                    ctx.lineWidth = 1
+                    ctx.strokeStyle = Theme.secondaryHighlightColor
+                    ctx.fillStyle = Theme.secondaryHighlightColor
+                    ctx.beginPath()
+                    ctx.moveTo(0,0)
+                    ctx.lineTo(0 + r * Math.cos(alpha),0 + r * Math.cos(beta))
+                    ctx.lineTo(0,0 + r * Math.cos(beta))
+                    ctx.closePath()
+                    ctx.fill()
+                    ctx.stroke()
+                }
+                visible: {
+                    if(cathetus_a.text == "" || cathetus_b.text == "" || hypotenuse_c.text == "" || angle_alpha.text == "" || angle_beta.text == "")
+                        return(false)
+                    else
+                        return(true)
+                }
+                anchors {
+                    top: parent.top
+                    topMargin: 150
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+                function alpha_angle() {
+                    var alpha = angle_alpha.text
+                    return(Math.abs(Math.PI * alpha / 180))
+                }
+
+                function beta_angle() {
+                    var beta = angle_beta.text
+                    return(Math.abs(Math.PI * beta / 180))
+                }
+            }
+
+            Text {
+                font.pointSize: 25
+                color: Theme.highlightColor
+                text: "Area A = " + area()
+                visible: {
+                    if(cathetus_a.text == "" || cathetus_b.text == "" || hypotenuse_c.text == "" || angle_alpha.text == "" || angle_beta.text == "")
+                        return(false)
+                    else
+                        return(true)
+                }
+                anchors {
+                    top: triangleCanvas.bottom
+                    topMargin: 20
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+                function area() {
+                    var a = cathetus_a.text
+                    var b = cathetus_b.text
+                    return(Math.abs(a * b / 2).toFixed(12).replace(/\.?0+$/, ""))
+                }
+            }
+
+            /*Button {
+                text: "Flip"
+                visible: {
+                    if(cathetus_a.text == "" || cathetus_b.text == "" || hypotenuse_c.text == "" || angle_alpha.text == "" || angle_beta.text == "")
+                        return(false)
+                    else
+                        return(true)
+                }
+            }
+
+            Button {
+                text: "Mirror"
+                visible: {
+                    if(cathetus_a.text == "" || cathetus_b.text == "" || hypotenuse_c.text == "" || angle_alpha.text == "" || angle_beta.text == "")
+                        return(false)
+                    else
+                        return(true)
+                }
+            }*/
         }
     }
 }
