@@ -1,7 +1,7 @@
 # Trigonon
-Trigonometry calculator for Sailfish OS.
+Right triangle solver for Sailfish OS.
 
-Trigonon is a simple right triangle calculator for Sailfish OS. Just enter a few valid values (two sides or one side and one angle or aspect ratio and diagonal length) and rest of the values will be automatically calculated. Remember to press Enter key after every entry so the calculations will function.
+Trigonon is a simple right triangle solver for Sailfish OS. Just enter a few valid values (two sides or one side and one angle or aspect ratio and diagonal length) and rest of the values will be automatically calculated. Remember to press Enter key after every entry so the calculations will function.
 
 Changelog
 ---------
