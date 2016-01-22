@@ -37,7 +37,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: Theme.fontSizeLarge
                 color: Theme.highlightColor
-                text: "Trigonometry calculator<p>for Sailfish OS"
+                text: "Right triangle solver\nfor Sailfish OS"
                 wrapMode: TextEdit.WordWrap
             }
 
@@ -47,7 +47,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 font.pointSize: 18
                 color: Theme.primaryColor
-                text: "<p>" + appName + " is a simple right-angled triangle calculator for Sailfish OS.<p>"
+                text: "<p>" + appName + " is a simple right triangle solver for\nSailfish OS.<p>"
                 wrapMode: TextEdit.WordWrap
             }
 
