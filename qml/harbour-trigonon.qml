@@ -5,7 +5,7 @@ import "pages"
 ApplicationWindow {
 
     property string appName: "Trigonon"
-    property string appVersion: "0.2.0-1"
+    property string appVersion: "0.3.0-1"
 
     initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
