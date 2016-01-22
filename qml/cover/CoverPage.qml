@@ -21,9 +21,9 @@ CoverBackground {
         width: parent.width - 2*Theme.paddingMedium
         x: Theme.paddingMedium
         horizontalAlignment: Text.AlignHCenter
-        font.pointSize: 20
+        font.pointSize: 16
         color: Theme.primaryColor
-        text: "Trigonometry calculator<p>for Sailfish OS"
+        text: "Right triangle solver\nfor Sailfish OS"
         wrapMode: TextEdit.WordWrap
         anchors {
             bottom: parent.bottom
